@@ -98,31 +98,34 @@ class Tag():
 		for comment in unparseable:
 			if comment[:3] == '\n#' or comment[:3] == ' #':
 				content = content.replace(comment, (len(comment))*'.')
-
-		# script
-		unparseable = content.split('<script')
-		content = unparseable.pop(0)
-		l = len(unparseable)
-		i = 0
-		while i < l:
-			tmp = unparseable[i].split('</script>')
-			content += '.......'
-			content += len(tmp.pop(0))*'.'
-			content += '.........'
-			content += ".........".join(tmp)
-			i += 1
-
-		# style
-		unparseable = content.split('<style')
-		content = unparseable.pop(0)
-		l = len(unparseable)
-		i = 0
-		while i < l:
-			tmp = unparseable[i].split('</style>')
-			content += '......'
-			content += len(tmp.pop(0))*'.'
-			content += '........'
-			content += "........".join(tmp)
-			i += 1
-
-		return content
+        
+# Comment these lines to enable closing <style> and <script> tags
+#   useful for Ember.JS
+# https://gist.github.com/paultreny/5311310
+        # # script
+        # unparseable = content.split('<script')
+        # content = unparseable.pop(0)
+        # l = len(unparseable)
+        # i = 0
+        # while i < l:
+        #     tmp = unparseable[i].split('</script>')
+        #     content += '.......'
+        #     content += len(tmp.pop(0))*'.'
+        #     content += '.........'
+        #     content += ".........".join(tmp)
+        #     i += 1
+        # 
+        # # style
+        # unparseable = content.split('<style')
+        # content = unparseable.pop(0)
+        # l = len(unparseable)
+        # i = 0
+        # while i < l:
+        #     tmp = unparseable[i].split('</style>')
+        #     content += '......'
+        #     content += len(tmp.pop(0))*'.'
+        #     content += '........'
+        #     content += "........".join(tmp)
+        #     i += 1
+        # 
+        # return content
