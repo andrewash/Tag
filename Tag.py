@@ -127,5 +127,5 @@ class Tag():
         #     content += '........'
         #     content += "........".join(tmp)
         #     i += 1
-        # 
-        # return content
+
+        return content
